@@ -5,3 +5,5 @@ export {default as Sweets} from './Sweets';
 export {default as Badges} from './Badges';
 export {default as Clothes} from './Clothes';
 export {default as Account} from './Account';
+export {default as Login} from './Login';
+export {default as Register} from './Register';

@@ -1,135 +1,235 @@
-*{
-  padding: 0;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+* {
+    padding: 0;
+    margin: 0;
 }
+
 .App {
-  text-align: center;
-  display: flex;
+    text-align: center;
+    display: flex;
 }
 
-.navbar{
-  flex: 0.25;
-  background-color: rgb(223, 93, 255);
-  padding: 15px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
+.navbar {
+    flex: 0.25;
+    background-color: rgb(223, 93, 255);
+    padding: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.main{
-  flex: 0.75;
-  width: 100%;
-  
+.main {
+    flex: 0.75;
+    width: 100%;
 }
-.bold{
-  font-weight: bold;
-}
-tr, td{
-  padding: 2px 10px;
-}
-table, tr, td{
-  border: 1px solid #ad0892;
-  border-collapse:collapse;
-}
-.routes{
-  padding: 20px;
-}
-.nav-container{
-  width: 100%;
-  height: max-content;
-  border-radius: 20px;
 
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
+.bold {
+    font-weight: bold;
+}
+
+tr,
+td {
+    padding: 2px 10px;
+}
+
+table,
+tr,
+td {
+    border: 1px solid #ad0892;
+    border-collapse: collapse;
+}
+
+.routes {
+    padding: 20px;
+}
+
+.nav-container {
+    width: 100%;
+    height: max-content;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
 }
 
 .footer {
-  background-color: #001529;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  align-items: center;
+    background-color: #001529;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-::marker{
-  display: none;
-}
-.ant-menu-item{
-  list-style-type: none;
-  text-align : left; 
-  font-size: 25px;
-}
-.ant-menu-item span{
-  color: #ad0892;
-  padding-right: 10px;
-}
-.ant-menu-item a{
-  color: #ad0892;
-  padding-right: 50px;
-}
-.line{
-  text-decoration: line-through;
+    height: 40vmin;
+    pointer-events: none;
 }
 
-.main-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+::marker {
+    display: none;
 }
-.center-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.ant-menu-item {
+    list-style-type: none;
+    text-align: left;
+    font-size: 25px;
 }
-.card{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border: #001529 1px solid;
-  width: 300px;
-  margin: 5px;
-  padding: 5px;
-  padding-bottom: 15px;
-  border-radius: 15px;
+
+.ant-menu-item span {
+    color: #ad0892;
+    padding-right: 10px;
 }
-.btn{
-  width: min-content;
+
+.ant-menu-item a {
+    color: #ad0892;
+    padding-right: 50px;
 }
+
+.line {
+    text-decoration: line-through;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.space-between-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 500px;
+}
+
+.label {
+    font-weight: normal;
+    color: #44474d;
+}
+
+.markerFalse::before {
+    width: 2px;
+    height: 2px;
+    background-color: #ad0892;
+}
+
+#registerForm>div>div {
+    padding-top: 15px;
+}
+
+#loginPage {
+    height: 100vh;
+}
+
+#loginPage>div {
+    height: 500px;
+}
+
+#logiForm {
+    color: #282c34;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: #001529 1px solid;
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+}
+
+.btn {
+    width: min-content;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.font50px {
+    font-size: 50px;
+}
+
+#shopName {
+    letter-spacing: 15px;
+}
+
+input {
+    padding: 4px;
+    font-size: 25px;
+    border-width: 1px;
+    border-color: #fed7ff;
+    background-color: #FFFFFF;
+    color: fuchsia;
+    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.japanese {
+    color: #ee4cd3;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.background {
+    background: rgb(198, 254, 255);
+    background: linear-gradient(180deg, rgba(198, 254, 255, 1) 0%, rgba(254, 200, 255, 1) 100%);
 }

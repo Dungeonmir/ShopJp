@@ -39,11 +39,7 @@ const Homepage = () =>{
                         </div>
                     )
                 })}
-                {/* <label htmlFor="id">ID</label>
-                <input type="text" name="id" id="id" onChange={(e)=>{
-                    setId(e.target.value);
-                }}/>
-            <button onClick={submitPressed}>Submit</button>*/}
+                
             </div>
 
         </>
