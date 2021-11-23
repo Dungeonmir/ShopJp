@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
-import { Homepage, Navbar, Books, Sweets, Badges, Clothes, Account, Login, Register } from './components';
+import { Homepage, Navbar, Books, Sweets, Badges, Clothes, Account, Login, Register, Orders, Statistic } from './components';
 import 'antd/dist/antd.css';
 
 import './App.css';
@@ -10,14 +10,14 @@ function App() {
 
 
   if (localStorage.getItem('user') == null || localStorage.getItem('password') == null) {
-    return(
+    return (
       <>
-      <Routes>
-        <Route path='/' element={<Login/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/register' element={<Register/>}></Route>
-      </Routes>
-      
+        <Routes>
+          <Route path='/' element={<Login />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+        </Routes>
+
       </>
     );
 
@@ -39,6 +39,8 @@ function App() {
                 <Route path='/sweets' element={<Sweets />}></Route>
                 <Route path='/badges' element={<Badges />}></Route>
                 <Route path='/clothes' element={<Clothes />}></Route>
+                <Route path='/orders' element={<Orders />}></Route>
+                <Route path='/statistic' element={<Statistic />}></Route>
                 <Route path='/account' element={<Account />}></Route>
               </Routes >
             </div>

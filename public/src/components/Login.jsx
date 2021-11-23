@@ -10,12 +10,12 @@ function Login() {
         e.preventDefault();
         console.log(user);
         axios.post('http://localhost:3001/api/verifyPassword', { user, password }).then((res) => {
-            let isLoggedIn = res;
-            console.log(isLoggedIn);
-            console.log(typeof(res));
+            let isLoggedIn = res.data.isLoggedIn;
+            console.log(res.data);
             if (isLoggedIn) {
                 localStorage.setItem('password', password);
                 localStorage.setItem('user', user);
+                localStorage.setItem('idCustomers', res.data.idCustomers);
                 window.location.replace(e.target.href)
             }
             else {
