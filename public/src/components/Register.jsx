@@ -2,6 +2,8 @@ import { React, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom'
+import {server} from './config'
+
 function Register() {
     const load = (e) => {
         e.preventDefault();
@@ -70,7 +72,7 @@ function Register() {
                         <h1 className="japanese font50px" id="shopName">JIPISHOP</h1>
                     </div>
                     <div className="center-container" id="loginForm">
-                        <form action="http://localhost:3001/api/insertUser" method="post" id="registerForm">
+                        <form action={server + "/api/insertUser"} method="post" id="registerForm">
                             <div className="space-between japanese">
                                 <div className="space-between-row " >
                                     <label htmlFor="user">Логин</label>
