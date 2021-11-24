@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Typography, Button} from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
-import {Buy}from '../components';
+import {Buy, Delete}from '../components';
 const {Title} = Typography;
 
 
@@ -46,6 +46,7 @@ function Sweets() {
                 })}
                 </table>
                 <Buy/>
+                <Delete/>
             </div>
         </div>
     )
