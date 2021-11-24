@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
-import { Homepage, Navbar, Books, Sweets, Badges, Clothes, Account, Login, Register, Orders, Statistic } from './components';
+import { Homepage, Navbar, Books, Sweets, Badges, Clothes, Account, Login, Register, Orders, Statistic, Insert } from './components';
 import 'antd/dist/antd.css';
 
 import './App.css';
@@ -42,6 +42,7 @@ function App() {
                 <Route path='/orders' element={<Orders />}></Route>
                 <Route path='/statistic' element={<Statistic />}></Route>
                 <Route path='/account' element={<Account />}></Route>
+                <Route path='/insert' element={<Insert />}></Route>
               </Routes >
             </div>
           </Layout>

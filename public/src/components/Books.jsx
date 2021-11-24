@@ -3,13 +3,15 @@ import {Typography, Button} from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 import {Buy, Delete}from '../components';
+import { server } from './config';
+
 const {Title} = Typography;
 
 
 function Books() {
     const [books, setBooks] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3001/api/getBooks').then((res)=>{
+        axios.get(server + '/api/getBooks').then((res)=>{
         console.log(res.data);
         setBooks(res.data);
     });

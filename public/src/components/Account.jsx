@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Button } from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
+import { server } from './config';
 const { Title } = Typography;
 
 
@@ -9,7 +10,7 @@ function Account() {
     const [account, setAccount] = useState([]);
     useEffect(() => {
         let user = localStorage.getItem('user');
-        axios.post('http://localhost:3001/api/getAccount', { user }).then((res) => {
+        axios.post(server + '/api/getAccount', { user }).then((res) => {
             console.log(res.data);
             setAccount(res.data);
         });

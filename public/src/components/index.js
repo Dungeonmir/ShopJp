@@ -24,3 +24,5 @@ export { default as Statistic }
 from './Statistic';
 export { default as Delete }
 from './Delete';
+export { default as Insert }
+from './Insert';

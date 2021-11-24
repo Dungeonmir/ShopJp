@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Menu, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import { HomeOutlined, BookOutlined, DingtalkOutlined, SmileOutlined, PropertySafetyOutlined, UserOutlined, ShoppingOutlined,SettingOutlined } from '@ant-design/icons';
+import { HomeOutlined, BookOutlined, DingtalkOutlined, SmileOutlined,PlusOutlined, PropertySafetyOutlined, UserOutlined, ShoppingOutlined,SettingOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 
 function Navbar() {
@@ -28,6 +28,9 @@ function Navbar() {
         </div>
         <div className="nav-container">
             <Menu theme='light'>
+                <Menu.Item icon={<PlusOutlined />}>
+                <Link to="/insert">Добавить продукт</Link>
+                </Menu.Item>
                 <Menu.Item icon={<SettingOutlined />}>
                     <Link to="/statistic">Статистика</Link>
                 </Menu.Item>

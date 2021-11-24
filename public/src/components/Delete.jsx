@@ -1,10 +1,11 @@
 import {React, useState} from 'react'
 import axios from 'axios';
 import {Button} from 'antd';
+import { server } from './config';
 function Delete() {
     const [productId, setProductId] = useState('');
     const clickedToDelete = () =>{
-        axios.post('http://localhost:3001/api/delete', {productId}).then((res)=>{
+        axios.post(server + '/api/delete', {productId}).then((res)=>{
             
         })
         

@@ -83,6 +83,9 @@ app.post('/api/getOrders', (req, res)=>{
     `;
 
     db.query(sqlSELECT, (err, result) => {
+        for (let i = 0; i < result.length; i++) {
+            result[i]['DateOfOrder'] = getCorrectDate(result[i]['DateOfOrder']);
+        }
         console.log(err);
         console.log(result);
         res.send(result);
@@ -165,6 +168,86 @@ function query(stringSQL){
         }
     })
 }
+
+app.post('/api/insertProduct', (req, res)=>{
+    let product = req.body.productData;
+    console.log(product);
+    if (product.category !=null) {
+        let category = product.category;
+        console.log(category);
+        let insertProduct = 'INSERT INTO `shop_jp`.`products` (`Name`, `Price`, `Discount`, `category_idCategory`, `Quantity`) VALUES ("'+product.name+'", '+product.price+', '+product.discount+', '+category+', '+product.quantity+');';
+        db.query(insertProduct, (err, result) => {
+            console.log('sql error: ' + err);
+            
+            if (result == undefined) {
+                console.log('undefined error');
+            } else {
+
+                console.log(result);
+                const getIdProduct=`SELECT max(idProducts) as idProduct FROM shop_jp.products;`; 
+                db.query(getIdProduct, (err, resultGetIdProduct) => {
+                    console.log('sql error: ' + err);
+                    if (resultGetIdProduct == undefined) {
+                        console.log('undefined error');
+                    } else {
+                        console.log('idProducts = ');
+                        console.log( resultGetIdProduct[0]);
+                        let idProduct = resultGetIdProduct[0].idProduct;
+
+                        switch (category) {
+                            case 1:
+                                //badges
+                                const insertBadge =  "INSERT INTO `shop_jp`.`ctg_badges` (`idBadge`, `Size`) VALUES ('"+idProduct+"', '"+product.badgeSize+"');";
+                                db.query(insertBadge, (err, resultInsertBadge) => {
+                                    console.log('sql error: ' + err);
+                                    if (resultInsertBadge == undefined) {
+                                        console.log('undefined error');
+                                    } else {
+                                        console.log(resultInsertBadge);
+                                    }
+                                })
+                                break;
+                            case 2:
+                                //books
+                                console.log('type of book = ' + product.typeOfBook);
+                                const insertBook = `INSERT INTO shop_jp.ctg_books (Author, Genre, TypeOfCover, ISBN, NumberOfPages, YearOfPublishing, idType) VALUES 
+                                ('${product.author}', '${product.genre}', '${product.typeOfCover}', '${product.ISBN}', ${product.numberOfPages}, ${product.yearOfPublishing}, ${product.typeOfBook});`
+                                db.query(insertBook, (err, resultinsertBook) => {
+                                    console.log('sql error: ' + err);
+                                    if (resultinsertBook == undefined) {
+                                        console.log('undefined error');
+                                    } else {
+                                        console.log(resultinsertBook);
+                                    }
+                                })
+                                break;
+                            case 3:
+                                //clothes
+                                break;
+                            case 4:
+                                //sweets
+                                break;
+                        
+                            default:
+                                break;
+                        }
+
+                    }
+                })
+
+                
+            }
+        })
+        
+    }
+    else{
+        console.log('Категория не выбрана');
+    }
+    
+
+}
+
+)
 app.post('/api/insertUser', (req, res) => {
     console.log('Новая запись, ' +
         req.body.user);
@@ -281,6 +364,9 @@ app.post('/api/getOrdersDay',(req, res)=>{
                 res.send([]);
             }
             else{
+                for (let i = 0; i < result.length; i++) {
+                    result[i]['DateOfOrder'] = getCorrectDate(result[i]['DateOfOrder']);
+                }
                 res.send(result);
             }
             
@@ -291,7 +377,14 @@ app.post('/api/getOrdersDay',(req, res)=>{
     }
     
 })
-
+function getCorrectDate(dateObject){
+    let date = dateObject;
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate();
+    
+    return year +'-'+ month+'-'+ day;
+}
 
 app.listen(3001, () => {
 

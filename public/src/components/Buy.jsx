@@ -1,11 +1,12 @@
 import {React, useState} from 'react'
 import axios from 'axios';
 import {Button} from 'antd';
+import { server } from './config';
 function Buy() {
     const [productId, setProductId] = useState('');
     const clickedToBuy = () =>{
         let idCustomers = localStorage.getItem('idCustomers');
-        axios.post('http://localhost:3001/api/buy', {productId, idCustomers }).then((res)=>{
+        axios.post(server + '/api/buy', {productId, idCustomers }).then((res)=>{
             if (res.data=='idProduct error') {
                 alert('Неверный номер продукта');
             }

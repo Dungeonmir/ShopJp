@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "antd";
 import axios from 'axios';
+import {server} from './config'
 
 function Login() {
     const [user, setUser] = useState('');
@@ -9,7 +10,7 @@ function Login() {
     const log = (e) => {
         e.preventDefault();
         console.log(user);
-        axios.post('http://localhost:3001/api/verifyPassword', { user, password }).then((res) => {
+        axios.post(server + '/api/verifyPassword', { user, password }).then((res) => {
             let isLoggedIn = res.data.isLoggedIn;
             console.log(res.data);
             if (isLoggedIn) {

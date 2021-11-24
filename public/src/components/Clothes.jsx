@@ -3,13 +3,14 @@ import {Typography, Button} from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 import {Buy, Delete}from '../components';
+import { server } from './config';
 const {Title} = Typography;
 
 
 function Clothes() {
     const [clothes, setClothes] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3001/api/getClothes').then((res)=>{
+        axios.get(server + '/api/getClothes').then((res)=>{
         console.log(res.data);
         setClothes(res.data);
     });

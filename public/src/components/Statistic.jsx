@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { Typography, Button } from 'antd';
 import axios from 'axios';
-
+import {server} from './config'
 
 const { Title } = Typography;
 
@@ -9,7 +9,7 @@ function Statistic() {
     
     const [stats, setStats] = useState([]);
     useEffect(() => {
-        axios.post('http://localhost:3001/api/statistic').then((res) => {
+        axios.post(server + '/api/statistic').then((res) => {
             console.log(res.data);
             setStats(res.data);
         });
@@ -21,7 +21,7 @@ function Statistic() {
         date = date.slice(5,8);
         console.log('date = '+date);
         
-        axios.post('http://localhost:3001/api/getStatsDay', { date }).then((res) => {
+        axios.post(server + '/api/getStatsDay', { date }).then((res) => {
             setStats([]);    
 
             console.log(res.data);

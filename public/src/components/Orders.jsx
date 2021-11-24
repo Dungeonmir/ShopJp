@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import { Typography, Button } from 'antd';
 import axios from 'axios';
+import {server} from './config'
 const { Title } = Typography;
 
 function Orders() {
@@ -9,7 +10,7 @@ function Orders() {
     
     useEffect(() => {
         let idCustomers = localStorage.getItem('idCustomers');
-        axios.post('http://localhost:3001/api/getOrders', { idCustomers }).then((res) => {
+        axios.post(server + '/api/getOrders', { idCustomers }).then((res) => {
             console.log(res.data);
             setOrders(res.data);
         });
@@ -19,7 +20,7 @@ function Orders() {
         let date = document.getElementById('datePick').value;
         console.log(date);
         
-        axios.post('http://localhost:3001/api/getOrdersDay', { date }).then((res) => {
+        axios.post(server + '/api/getOrdersDay', { date }).then((res) => {
             setOrdersDay([]);    
 
             console.log(res.data);
@@ -27,6 +28,8 @@ function Orders() {
             
         });
         
+
+
         
         
     }
@@ -93,6 +96,7 @@ function Orders() {
                         <td>Статус заказа</td>
 
                     </tr>
+
                     {ordersDay.map((value) => {
                         
                         if (!value.DateOfDelivery) {
